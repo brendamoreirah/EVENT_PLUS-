@@ -1,0 +1,8 @@
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.csproj.AssemblyReference.cache
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.AssemblyInfoInputs.cache
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.AssemblyInfo.cs
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.csproj.CoreCompileInputs.cache
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.sourcelink.json
