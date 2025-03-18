@@ -4,7 +4,7 @@ using Event_Plus.Domains;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace ProjectEventsPlus.Domain
+namespace Event_Plus.Domain
 {
     [Table("Comentario")]
     [Index(nameof(EXibirComentario), IsUnique = true)]
@@ -18,16 +18,16 @@ namespace ProjectEventsPlus.Domain
 
         [Column(TypeName = ("BIT"))]
         [Required(ErrorMessage = "A resposta é necessária!")]
-        public string? EXibirComentario { get; set; }
+        public bool? EXibirComentario { get; set; }
 
         [Required(ErrorMessage = "Usuário obrigatório")]
         public Guid UsuarioId { get; set; }
-        [ForeignKey("UsuarioID")]
+        [ForeignKey("UsuarioId")]
         public Usuario? Usuario { get; set; }
 
         [Required(ErrorMessage = "O evento é obrigatório")]
         public Guid EventoId { get; set; }
-        [ForeignKey("EventoID")]
+        [ForeignKey("EventoId")]
         public Evento? Evento { get; set; }
     }
 }

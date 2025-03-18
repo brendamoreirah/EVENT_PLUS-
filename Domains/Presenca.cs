@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Event_Plus.Domains;
 using ProjectEventsPlus.Domain;
 
-namespace ProjectEventsPlus.Domain
+namespace Event_Plus.Domain
 {
     [Table("Presenca")]
     public class Presenca
@@ -16,12 +16,12 @@ namespace ProjectEventsPlus.Domain
 
         [Required(ErrorMessage = "Usuário obrigatório")]
         public Guid UsuarioId { get; set; }
-        [ForeignKey("UsuarioID")]
+        [ForeignKey("UsuarioId")]
         public Usuario? Usuario { get; set; }
 
         [Required(ErrorMessage = "O evento é obrigatório")]
         public Guid EventoId { get; set; }
-        [ForeignKey("EventoID")]
+        [ForeignKey("EventoId")]
         public Evento? Evento { get; set; }
     }
 }

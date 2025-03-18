@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Event_Plus.Domains;
 using ProjectEventsPlus.Domain;
 
-namespace ProjectEventsPlus.Domain
+namespace Event_Plus.Domain
 {
     [Table("Evento")]
     public class Evento

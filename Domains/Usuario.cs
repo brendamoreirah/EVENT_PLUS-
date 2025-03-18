@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Event_Plus.Domains;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProjectEventsPlus.Domain
+namespace Event_Plus.Domain
 {
     [Table("Usuario")]
     [Index(nameof(EmailUsuario), IsUnique = true)]
