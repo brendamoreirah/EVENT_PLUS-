@@ -11,7 +11,7 @@ namespace Event_Plus.Repository
         private readonly Event_Context _context;
         public TipoEventoRepository(Event_Context context)
         {
-
+            _context = context;
         }
         public void Atualizar(Guid id, TipoEvento tipoEvento)
         {
@@ -51,10 +51,6 @@ namespace Event_Plus.Repository
                 throw;
             }
         }
-        public TipoEvento BuscarPorId(Guid Id, TipoEvento tipoEvento)
-        {
-            throw new NotImplementedException();
-        }
 
         public void Cadastrar(TipoEvento novoTipoEvento)
         {
@@ -88,10 +84,8 @@ namespace Event_Plus.Repository
                 throw;
             }      
         }
-        public void deletar(Guid Id)
-        {
-            throw new NotImplementedException();
-        }
+
+       
 
         public List<TipoEvento> Listar()
         {

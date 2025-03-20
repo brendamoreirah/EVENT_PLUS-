@@ -5,7 +5,7 @@ namespace Event_Plus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ComentarioEventoController : ControllerBase
+    public class PresencaController : ControllerBase
     {
     }
 }

@@ -10,7 +10,7 @@ namespace Event_Plus.Interface
 
         List<TipoEvento> Listar ();
 
-        TipoEvento BuscarPorId(Guid Id, TipoEvento tipoEvento);
+        TipoEvento BuscarPorId(Guid Id);
 
         void Atualizar(Guid id, TipoEvento tipoEvento);
     }

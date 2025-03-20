@@ -13,5 +13,6 @@ namespace Event_Plus.Interface
         TipoUsuario BuscarPorId(Guid Id);
 
         void Atualizar(Guid Id, TipoUsuario tipoUsuario);
+        List<TipoUsuario> Listar();
     }
 }
