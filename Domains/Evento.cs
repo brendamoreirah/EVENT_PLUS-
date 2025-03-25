@@ -10,6 +10,7 @@ namespace Event_Plus.Domain
     {
         [Key]
         public Guid EventoId { get; set; }
+
         [Column(TypeName = ("VARCHAR(50)"))]
         [Required(ErrorMessage = "O nome do evento é obrigatório")]
         public string? NomeEvento { get; set; }

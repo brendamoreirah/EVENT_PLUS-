@@ -11,7 +11,8 @@ namespace ProjectEventsPlus.Domain
     {
         [Key]
         public Guid InstituicaoId { get; set; }
-        [Column(TypeName = "VARCHAR(50)")]
+
+        [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O nome do evento é obrigatório")]
         public string? NomeFantasia { get; set; }
 

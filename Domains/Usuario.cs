@@ -11,6 +11,7 @@ namespace Event_Plus.Domain
     {
         [Key]
         public Guid UsuarioId { get; set; }
+
         [Column(TypeName = ("VARCHAR(50)"))]
         [Required(ErrorMessage = "O nome é obrigatório")]
         public string? NomeUsuario { get; set; }

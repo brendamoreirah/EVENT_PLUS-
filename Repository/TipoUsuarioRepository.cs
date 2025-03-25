@@ -84,10 +84,7 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public List<TipoUsuario> lista()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public List<TipoUsuario> Listar()
         {

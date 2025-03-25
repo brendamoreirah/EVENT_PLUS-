@@ -29,5 +29,10 @@ namespace Event_Plus.Context
                 optionsBuilder.UseSqlServer("Server=NOTE32-S28\\SQLEXPRESS; Database=EventPlus; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
             }
         }
+
+        internal void Atualizar(TipoEvento tipoEvento1, object tipoEvento2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

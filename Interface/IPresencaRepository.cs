@@ -6,17 +6,11 @@ namespace Event_Plus.Interface
     public interface IPresencaRepository
     {
 
+        void Inscrever(Presenca incricao);
         void Deletar(Guid id);
-
-
-        List<Presenca> listar();
-
+        List<Presenca> Listar();
         Presenca BuscarPorId(Guid id);
-
-        void Atualizar(Guid Id, Presenca presenca);
-
-        List<Presenca> ListarMinhasPresenca(Guid Id);
-
-        void Inscrever(Presenca presenca);
+        void Atualizar(Guid id, Presenca presencaEvento);
+        List<Presenca> ListarMinhaspresencas(Guid id);
     }
 }

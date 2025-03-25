@@ -1,122 +1,121 @@
-﻿using Event_Plus.Context;
-using Event_Plus.Domains;
+﻿using Event_Plus.Domains;
+using Event_Plus.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing.Constraints;
 
-namespace EventPLUS.Controllers
+namespace Eventplus_api_senai.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+
     public class TipoEventoController : ControllerBase
     {
-
-        private readonly Event_Context _tipoEventoRepository;
-        public TipoEventoController(Event_Context tipoEventoRepository)
+        private readonly ITipoEventoRepository _tipoeventoRepository;
+        public TipoEventoController(ITipoEventoRepository eventoRepository)
         {
-            _tipoEventoRepository = tipoEventoRepository;
+            _tipoeventoRepository = eventoRepository;
         }
 
+        /// <summary>
+        /// Endpoint para listar tipos de eventos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+        public ActionResult Get()
         {
             try
             {
-                return Ok(_tipoEventoRepository.Evento.ToList());
+                return Ok(_tipoeventoRepository.Listar());
             }
             catch (Exception e)
             {
 
                 return BadRequest(e.Message);
             }
+
         }
 
-
-        [HttpPost("Cadastrar")]
-
-        public IActionResult Post(TipoEvento tipoEvento)
+        /// <summary>
+        /// Endpoint para cadastras novos tipos de eventos
+        /// </summary>
+        /// <param name="novoTipoEvento"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Post(TipoEvento novoTipoEvento)
         {
-
             try
             {
-                _tipoEventoRepository.TipoEvento.Add(tipoEvento);
-                _tipoEventoRepository.SaveChanges();
-                return Ok(tipoEvento);
+                _tipoeventoRepository.Cadastrar(novoTipoEvento);
+                return Created();
             }
             catch (Exception e)
             {
+
                 return BadRequest(e.Message);
             }
 
         }
 
+        /// <summary>
+        /// Endpoint para buscar tipos de eventos por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("BuscarPorId/{id}")]
-
-        public IActionResult GetById(Guid id)
+        public ActionResult GetById(Guid id)
         {
             try
             {
-                TipoEvento tipoEvento = _tipoEventoRepository.TipoEvento.Find(id)!;
-                if (tipoEvento == null)
-                {
-                    return NotFound();
-                }
-                return Ok(tipoEvento);
+                TipoEvento tipoBuscado = _tipoeventoRepository.BuscarPorId(id);
+                return Ok(tipoBuscado);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e.Message);
+
+                return BadRequest();
             }
+
         }
 
-        [HttpDelete("Deletar/{id}")]
-        public IActionResult Delete(Guid id)
+        /// <summary>
+        /// Endpoint para deletar tipos de eventos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
         {
             try
             {
-                TipoEvento tipoEvento = _tipoEventoRepository.TipoEvento.Find(id)!;
-                if (tipoEvento == null)
-                {
-                    return NotFound();
-                }
-                _tipoEventoRepository.TipoEvento.Remove(tipoEvento);
-                _tipoEventoRepository.SaveChanges();
-                return Ok(tipoEvento);
+                _tipoeventoRepository.Deletar(id);
+                return NoContent();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult Put(Guid id, TipoEvento tipoEvento)
+        {
+            try
+            {
+                _tipoeventoRepository.Atualizar(id, tipoEvento);
+                return NoContent();
             }
             catch (Exception e)
             {
+
                 return BadRequest(e.Message);
             }
-        }
-
-
-        
-
-            [HttpPut("{id}")]
-            public IActionResult Put(Guid id, TipoEvento tiposEventos)
-            {
-                try
-                {
-                    _tipoEventoRepository.Atualizar(Guid id, TipoEvento tiposEventos);
-                    return NoContent();
-                }
-                catch (Exception e)
-                {
-
-                    return BadRequest(e.Message);
-                }
-            }
-
-
-
-
-
-
-
 
         }
-        
 
     }
 }

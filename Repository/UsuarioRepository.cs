@@ -4,48 +4,48 @@ using Event_Plus.Interface;
 
 public class UsuarioRepository : IUsuarioRepository
 {
-    private readonly EventoContext _context;
+    private readonly Event_Context _context;
 
-    public UsuarioRepository(EventoContext context)
+    public UsuarioRepository(Event_Context context)
     {
         _context = context;
     }
     public List<Usuario> Listar()
     {
-        return _context.Usuarios.ToList();
+        return _context.Usuario.ToList();
     }
 
     public Usuario BuscarPorId(Guid id)
     {
-        return _context.Usuarios.Find(id)!;
+        return _context.Usuario.Find(id)!;
     }
 
     public void Cadastrar(Usuario usuarioEvento)
     {
-        _context.Usuarios.Add(usuarioEvento);
+        _context.Usuario.Add(usuarioEvento);
         _context.SaveChanges();
     }
 
     public void Atualizar(Guid id, Usuario UsuarioAtualizado)
     {
-        Usuario UsuarioBuscado = _context.Usuarios.Find(id)!;
+        Usuario UsuarioBuscado = _context.Usuario.Find(id)!;
 
         if (UsuarioBuscado != null)
         {
-            UsuarioBuscado.Nome = UsuarioAtualizado.Nome;
-            UsuarioBuscado.Email = UsuarioAtualizado.Email;
-            UsuarioBuscado.Senha = UsuarioAtualizado.Senha;
-            UsuarioBuscado.IdTipoUsuario = UsuarioAtualizado.IdTipoUsuario;
+            UsuarioBuscado.NomeUsuario = UsuarioAtualizado.NomeUsuario;
+            UsuarioBuscado.EmailUsuario = UsuarioAtualizado.EmailUsuario;
+            UsuarioBuscado.SenhaUsuario = UsuarioAtualizado.SenhaUsuario;
+            UsuarioBuscado.TipoUsuarioId = UsuarioAtualizado.TipoUsuarioId;
         }
         _context.SaveChanges();
     }
 
     public void Deletar(Guid id)
     {
-        Usuario usuarioBuscado = _context.Usuarios.Find(id)!;
+        Usuario usuarioBuscado = _context.Usuario.Find(id)!;
         if (usuarioBuscado != null)
         {
-            _context.Usuarios.Remove(usuarioBuscado);
+            _context.Usuario.Remove(usuarioBuscado);
             _context.SaveChanges();
         }
     }
@@ -56,3 +56,9 @@ public class UsuarioRepository : IUsuarioRepository
     {
         throw new NotImplementedException();
     }
+
+    public Usuario BuscarPoEmaileSenha(string email, string senha)
+    {
+        throw new NotImplementedException();
+    }
+}

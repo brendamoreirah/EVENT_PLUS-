@@ -18,7 +18,11 @@ namespace Event_Plus.Domain
 
         [Column(TypeName = ("BIT"))]
         [Required(ErrorMessage = "A resposta é necessária!")]
-        public bool? EXibirComentario { get; set; }
+        public bool? ExibirComentario { get; set; }
+
+        [Column(TypeName = "VARCHAR(200)")]
+        [Required(ErrorMessage = "Descrição do comentário obrigatório!")]
+        public string? Descricao { get; set; }
 
         [Required(ErrorMessage = "Usuário obrigatório")]
         public Guid UsuarioId { get; set; }

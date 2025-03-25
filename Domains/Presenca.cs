@@ -10,6 +10,7 @@ namespace Event_Plus.Domain
     {
         [Key]
         public Guid PresencaId { get; set; }
+
         [Column(TypeName = ("BIT"))]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public bool? Situacao { get; set; }
