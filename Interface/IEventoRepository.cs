@@ -13,7 +13,7 @@ namespace Event_Plus.Interface
 
         List<Evento> ListarPorId(Guid id);
 
-        List<Evento> ProximosEventos(Guid id);
+        List<Evento> ProximosEventos();
 
         Evento BuscarPorId(Guid id);
 

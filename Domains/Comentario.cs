@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Event_Plus.Domain
 {
     [Table("Comentario")]
-    [Index(nameof(EXibirComentario), IsUnique = true)]
+    [Index(nameof(ExibirComentario), IsUnique = true)]
     public class Comentario
     {
         [Key]

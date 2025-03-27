@@ -4,7 +4,29 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interface\NovaPasta2\**" />
+    <Compile Remove="NovaPasta1\**" />
+    <Compile Remove="NovaPasta\**" />
+    <Content Remove="Interface\NovaPasta2\**" />
+    <Content Remove="NovaPasta1\**" />
+    <Content Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="Interface\NovaPasta2\**" />
+    <EmbeddedResource Remove="NovaPasta1\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="Interface\NovaPasta2\**" />
+    <None Remove="NovaPasta1\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTO\UsuarioDTO.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />

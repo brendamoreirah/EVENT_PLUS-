@@ -12,19 +12,22 @@ namespace Api_Event.Controllers
     public class EventoController : ControllerBase
     {
         private readonly IEventoRepository _eventoRepository;
+
         public EventoController(IEventoRepository eventoRepository)
         {
             _eventoRepository = eventoRepository;
         }
 
-        //Metodo Listar 
-        [HttpGet("{id}")]
-        public IActionResult Get()
+
+        //Metodo Listar por Id 
+        [HttpGet("ListarPorId/{id}")]
+        public IActionResult GetByEvento(Guid id)
         {
             try
             {
-                List<Evento> listarEvento = _eventoRepository.Listar();
-                return Ok(listarEvento);
+                List<Evento> listarEventoId = _eventoRepository.Listar();
+
+                return Ok(listarEventoId);
             }
             catch (Exception e)
             {
@@ -62,7 +65,7 @@ namespace Api_Event.Controllers
             }
         }
 
-        //Metodo Deletar
+
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -77,13 +80,31 @@ namespace Api_Event.Controllers
             }
         }
 
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+
+            try
+            {
+                return Ok(_eventoRepository.Listar());
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+
+            }
+        }
+
         //MetodoAtualizar
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Evento evento)
+        public IActionResult Put(Guid id, Evento novoevento)
         {
             try
             {
-                _eventoRepository.Atualizar(id, evento);
+                _eventoRepository.Atualizar(id, novoevento);
+
                 return NoContent();
             }
             catch (Exception e)

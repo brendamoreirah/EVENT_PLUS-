@@ -26,13 +26,8 @@ namespace Event_Plus.Context
             if (!optionsBuilder.IsConfigured)
             {
                 // Substitua "Eventos" pelo nome correto do banco de dados
-                optionsBuilder.UseSqlServer("Server=NOTE32-S28\\SQLEXPRESS; Database=EventPlus; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
+                optionsBuilder.UseSqlServer("Server=NOTE32-S28\\SQLEXPRESS; Database=Eventos; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
             }
-        }
-
-        internal void Atualizar(TipoEvento tipoEvento1, object tipoEvento2)
-        {
-            throw new NotImplementedException();
         }
     }
 }

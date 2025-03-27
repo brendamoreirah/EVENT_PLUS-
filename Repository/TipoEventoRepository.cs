@@ -91,9 +91,9 @@ namespace Event_Plus.Repository
         {
             try
             {
-                List<TipoEvento> listaDeTipos = _context.TipoEvento.Include(g => g.TituloTipoEvento).ToList();
-
-                return listaDeTipos;
+                return _context.TipoEvento
+                    .OrderBy(tp => tp.TituloTipoEvento)
+                    .ToList();
             }
             catch (Exception)
             {

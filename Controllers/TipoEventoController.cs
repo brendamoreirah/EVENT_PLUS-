@@ -8,7 +8,6 @@ namespace Eventplus_api_senai.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-
     public class TipoEventoController : ControllerBase
     {
         private readonly ITipoEventoRepository _tipoeventoRepository;
@@ -22,11 +21,13 @@ namespace Eventplus_api_senai.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult Get()
+        public IActionResult Get()
         {
             try
             {
-                return Ok(_tipoeventoRepository.Listar());
+                List<TipoEvento> listaDeTipos = _tipoeventoRepository.Listar();
+
+                return Ok(listaDeTipos);
             }
             catch (Exception e)
             {
@@ -63,7 +64,7 @@ namespace Eventplus_api_senai.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("BuscarPorId/{id}")]
-        public ActionResult GetById(Guid id)
+        public IActionResult GetById(Guid id)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace Eventplus_api_senai.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public ActionResult Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
             try
             {

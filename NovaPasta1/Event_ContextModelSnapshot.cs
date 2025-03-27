@@ -32,21 +32,25 @@ namespace Event_Plus.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("EXibirComentario")
-                        .HasColumnType("BIT");
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(200)");
 
                     b.Property<Guid>("EventoId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("ExibirComentario")
+                        .HasColumnType("BIT");
 
                     b.Property<Guid>("UsuarioId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ComentarioEventoId");
 
-                    b.HasIndex("EXibirComentario")
-                        .IsUnique();
-
                     b.HasIndex("EventoId");
+
+                    b.HasIndex("ExibirComentario")
+                        .IsUnique();
 
                     b.HasIndex("UsuarioId");
 
@@ -189,7 +193,7 @@ namespace Event_Plus.Migrations
 
                     b.Property<string>("NomeFantasia")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(50)");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("InstituicaoId");
 

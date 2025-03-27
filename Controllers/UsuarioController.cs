@@ -1,11 +1,15 @@
 ﻿using Event_Plus.Domain;
 using Event_Plus.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Event_Plus.Controllers
 {
-
-    public class UsuarioController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
+    
+    public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -36,7 +40,6 @@ namespace Event_Plus.Controllers
         /// <param name="id"> id do usuario buscado</param>
         /// <returns>Usuario Buscado</returns>
         [HttpGet("BuscarPorId/{id}")]
-
         public IActionResult GetById(Guid Id)
         {
             try
@@ -51,11 +54,5 @@ namespace Event_Plus.Controllers
                 return BadRequest(e.Message);
             }
         }
-
     }
 }
-
-
-
-
-

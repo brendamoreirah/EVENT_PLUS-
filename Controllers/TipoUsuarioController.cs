@@ -32,6 +32,7 @@ namespace projeto_event_plus.Controllers
                 return BadRequest(error.Message);
             }
         }
+
         //deletar
         [HttpDelete("{id}")]
         public IActionResult DeleteById(Guid id)
@@ -47,6 +48,7 @@ namespace projeto_event_plus.Controllers
                 throw;
             }
         }
+
         //listar
         [HttpGet]
         public IActionResult Get()
@@ -62,6 +64,7 @@ namespace projeto_event_plus.Controllers
                 return BadRequest(e.Message);
             }
         }
+
         //buscar por id 
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult GetById(Guid id)
@@ -77,6 +80,7 @@ namespace projeto_event_plus.Controllers
                 return BadRequest(e.Message);
             }
         }
+
         //atualizar 
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, TipoUsuario tiposUsuarios)

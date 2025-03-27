@@ -100,14 +100,17 @@ namespace Event_.Repository
                 throw;
             }
         }
-
-        public void cadastrar(Comentario comentarioEvento)
+        public void Cadastrar(Comentario comentarioEvento)
         {
             try
             {
-                Comentario.ComentarioEventoId.Guid.NewGuid();
+                // Assign a new Guid to ComentarioEventoId
+                comentarioEvento.ComentarioEventoId = Guid.NewGuid();
+
+                // Add the comentarioEvento object to the context
                 _context.Comentario.Add(comentarioEvento);
 
+                // Save changes to the database
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -115,8 +118,7 @@ namespace Event_.Repository
                 throw;
             }
         }
-
-        public Comentario BuscarPorId(Guid UsuarioId, Guid IdEvento)
+        public Comentario BuscarPorIdUsuario(Guid UsuarioId, Guid EventoId)
         {
             try
             {
@@ -139,15 +141,18 @@ namespace Event_.Repository
                             NomeEvento = c.Evento!.NomeEvento,
                         }
 
-                    }).FirstOrDefault(c => c.UsuarioId == UsuarioId.&& c.EventoId == EventoId)!;
+                    }).FirstOrDefault(c => c.UsuarioId == UsuarioId && c.EventoId == EventoId)!;
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
+        
     }
-    }
+}
+
 
 
      

@@ -8,7 +8,7 @@ namespace Event_Plus.Interface
 
         void Deletar(Guid id);
 
-        List<TipoEvento> Listar ();
+        List<TipoEvento> Listar();
 
         TipoEvento BuscarPorId(Guid Id);
 

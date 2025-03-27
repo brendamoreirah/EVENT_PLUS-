@@ -12,7 +12,6 @@ namespace Event_Plus.Domains
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O tipo  do usuario eh obrigatorioo!")]
-
-        public string TituloTipoUsuario { get; set; }
+        public string? TituloTipoUsuario { get; set; }
     }
 }

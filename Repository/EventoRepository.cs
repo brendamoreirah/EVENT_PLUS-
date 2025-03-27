@@ -110,7 +110,7 @@ public class EventoRepository : IEventoRepository
         }
     }
 
-    public List<Evento> ProximosEventos(Guid id)
+    public List<Evento> ProximosEventos()
     {
 
         try

@@ -174,3 +174,5 @@ C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\refint\Event_Plus.dll
 C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.pdb
 C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.genruntimeconfig.cache
 C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\ref\Event_Plus.dll
+C:\Users\47231372899\Desktop\EVENT_PLUS-\bin\Debug\net8.0\Event_Plus.xml
+C:\Users\47231372899\Desktop\EVENT_PLUS-\obj\Debug\net8.0\Event_Plus.xml
